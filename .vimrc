@@ -34,8 +34,10 @@ colorscheme wombat "desert 			"配色
 
 " Only display file name on tab
 set guitablabel=%t
+
 " auto reload .vimrc
 autocmd! bufwritepost .vimrc source ~/.vimrc
+
 set noeb
 
 set gfn=Monaco  			"字体
@@ -44,17 +46,9 @@ set number 				" Turn on line numbers
 "set expandtab
 set shiftwidth=4
 set softtabstop=4
-set linebreak 				" 整词换行
+set linebreak 					" 整词换行
 set wildmode=longest:full 		" Filename completion
-set wildmenu 				" Filename Completion
-
-" ======================
-" Windows move
-" ======================
-nmap ,wj <C-w>j
-nmap ,wk <C-w>k
-nmap ,wh <C-w>h
-nmap ,wl <C-w>l
+set wildmenu 					" Filename Completion
 
 " ======================
 " Compile and Run
@@ -86,21 +80,21 @@ function! CompileAndRun()
 	endif
 endfunction
 
-" =======================
-" 模仿MS Windows中的快捷键
-" =======================
-vmap <C-c> "yy
-vmap <C-x> "yd
-nmap <C-v> "yp
-vmap <C-v> "yp
-nmap <C-a> ggvG$
+
+" ======================
+" Windows move
+" ======================
+nmap ,wj <C-w>j
+nmap ,wk <C-w>k
+nmap ,wh <C-w>h
+nmap ,wl <C-w>l
 
 " =======================
 " 窗口操作的快捷键
 " =======================
-nmap wv <C-w>v " 垂直分割当前窗口
-nmap wc <C-w>c " 关闭当前窗口
-nmap ws <C-w>s " 水平分割当前窗口
+nmap ,wv <C-w>v " 垂直分割当前窗口
+nmap ,wc <C-w>c " 关闭当前窗口
+nmap ,ws <C-w>s " 水平分割当前窗口
 
 " =======================
 " 模仿MS Windows中的保存命令: Ctrl+S
