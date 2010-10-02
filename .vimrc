@@ -6,11 +6,8 @@ endif
 
 " GUI
 if has("gui_running")
-    if has("win32")
-        set fileencoding=chinese
-    else
-        set fileencoding=utf-8
-    endif
+    set go-=T
+    set go-=m
 
     let &termencoding=&encoding
 
@@ -40,7 +37,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 set noeb
 
-set gfn=Monaco  			"字体
+set gfn=Monaco:h14  			"字体
 set nocompatible
 set number 				" Turn on line numbers
 "set expandtab
