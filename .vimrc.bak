@@ -6,8 +6,11 @@ endif
 
 " GUI
 if has("gui_running")
-    set go-=T
-    set go-=m
+    if has("win32")
+        set fileencoding=chinese
+    else
+        set fileencoding=utf-8
+    endif
 
     let &termencoding=&encoding
 
@@ -37,7 +40,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 set noeb
 
-set gfn=Monaco:h14  			"字体
+set gfn=Monaco  			"字体
 set nocompatible
 set number 				" Turn on line numbers
 "set expandtab
@@ -121,7 +124,6 @@ map <F6> :NERDTreeClose<cr>
 " =======================
 " TagList Tree
 " =======================
-let Tlist_Ctags_Cmd = '/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags'
 let Tlist_Auto_Open = 0 
 let Tlist_Exit_OnlyWindow = 1 
 map <F4> :TlistToggle<cr>
