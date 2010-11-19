@@ -1,9 +1,3 @@
-" For Windows
-if has("win32")
-	source $VIMRUNTIME/mswin.vim
-	behave mswin
-endif
-
 " GUI
 if has("gui_running")
     set go-=T
@@ -153,3 +147,11 @@ nmap ,fcl :FufChangeList<CR>
 nmap ,fq :FufQuickfix<CR>
 nmap ,fl :FufLine<CR>
 nmap ,fh :FufHelp<CR>
+
+" =======================
+" Configure for PYTHON  
+" =======================
+" -----------------------
+" pylint plugin
+autocmd FileType python compiler pylint
+let g:pylint_onwrite = 0
