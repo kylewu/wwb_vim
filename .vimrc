@@ -1,33 +1,16 @@
-" For Windows
-if has("win32")
-	source $VIMRUNTIME/mswin.vim
-	behave mswin
-endif
-
-" GUI
-if has("gui_running")
-    set go-=T
-    set go-=m
-
-    let &termencoding=&encoding
-
-    " 解决菜单乱码
-    source $VIMRUNTIME/delmenu.vim
-    source $VIMRUNTIME/menu.vim
-
-    " 解决consle输出乱码
-    language messages zh_CN.utf-8
-endif
+set go-=T
 
 " =========vim setting
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,prc,taiwan,latin-1
 set termencoding=utf-8
 set fileformats=dos,unix
+" 解决consle输出乱码
+language messages zh_CN.utf-8
 
-filetype plugin indent on               " conf file for different languages are located in .vim/ftplugin
+filetype plugin on               " conf file for different languages are located in .vim/ftplugin
 syntax on
-colorscheme wombat "desert 			"配色
+colorscheme wombat "desert 
 
 " Only display file name on tab
 set guitablabel=%t
@@ -35,14 +18,18 @@ set guitablabel=%t
 " auto reload .vimrc
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-set noeb
+set noeb				" no error bell
+set paste				" enable paste
 
-set gfn=Monaco:h14  			"字体
+set gfn=Monaco:h14  			" font
 set nocompatible
 set number 				" Turn on line numbers
 "set expandtab
 set shiftwidth=4
 set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+
 set linebreak 					" 整词换行
 set wildmode=longest:full 		" Filename completion
 set wildmenu 					" Filename Completion
