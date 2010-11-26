@@ -140,3 +140,11 @@ nmap ,fcl :FufChangeList<CR>
 nmap ,fq :FufQuickfix<CR>
 nmap ,fl :FufLine<CR>
 nmap ,fh :FufHelp<CR>
+
+" =======================
+" Configure for PYTHON  
+" =======================
+" -----------------------
+" pylint plugin
+autocmd FileType python compiler pylint
+let g:pylint_onwrite = 0
