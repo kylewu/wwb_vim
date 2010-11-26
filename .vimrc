@@ -8,7 +8,7 @@ set fileformats=dos,unix
 " 解决consle输出乱码
 language messages zh_CN.utf-8
 
-filetype plugin on               " conf file for different languages are located in .vim/ftplugin
+filetype plugin indent on               " conf file for different languages are located in .vim/ftplugin
 syntax on
 colorscheme wombat "desert 
 
@@ -19,16 +19,32 @@ set guitablabel=%t
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 set noeb				" no error bell
-set paste				" enable paste
+"set paste				" enable paste
+set nocompatible
 
 set gfn=Monaco:h14  			" font
-set nocompatible
-set number 				" Turn on line numbers
-"set expandtab
-set shiftwidth=4
+set number 			        	" Turn on line numbers
+set showcmd                     " show (partial) command in status line
+set ruler                       " show line and column number
+
+" configure expanding of tabs for various file types
+au BufRead,BufNewFile *.py set expandtab
+au BufRead,BufNewFile *.c set noexpandtab
+au BufRead,BufNewFile *.h set noexpandtab
+au BufRead,BufNewFile Makefile* set noexpandtab
+
+" --------------------------------------------------------------------------------
+" configure editor with tabs and nice stuff...
+" --------------------------------------------------------------------------------
+set expandtab           " enter spaces when tab is pressed
+set textwidth=120       " break lines when line length increases
+set tabstop=4           " use 4 spaces to represent tab
 set softtabstop=4
-set tabstop=4
-set shiftwidth=4
+set shiftwidth=4        " number of spaces to use for auto indent
+set autoindent          " copy indent from current line when starting a new line
+
+" make backspaces more powerfull
+set backspace=indent,eol,start
 
 set linebreak 					" 整词换行
 set wildmode=longest:full 		" Filename completion
@@ -122,6 +138,10 @@ let g:T_AUTHOR = "Kyle Wu"
 let g:T_AUTHOR_EMAIL = "imkylewu@gmail.com"
 let g:T_AUTHOR_WEBSITE = "http://www.kylewu.net"
 let g:T_DATE_FORMAT = "%c"
+" =======================
+" SnipMate
+" =======================
+let g:snips_author = "Kyle Wu  imkylewu@gmail.com"
 
 " =======================
 " FuzzyFinder

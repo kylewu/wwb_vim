@@ -38,6 +38,11 @@
 "   other compiler.
 "
 
+" FIXME 
+" We should echo filename because pylint truncates .py
+" If someone know better way - let me know :) 
+CompilerSet makeprg=(echo\ '[%]';\ pylint-2.6\ --disable=C0103\ -r\ y\ %)
+
 
 if exists('current_compiler')
   finish
@@ -63,10 +68,6 @@ endif
 if exists(":CompilerSet") != 2          " older Vim always used :setlocal
   command -nargs=* CompilerSet setlocal <args>
 endif
-
-" We should echo filename because pylint truncates .py
-" If someone know better way - let me know :) 
-CompilerSet makeprg=(echo\ '[%]';\ pylint\ -r\ y\ %)
 
 " We could omit end of file-entry, there is only one file
 " %+I... - include code rating information
