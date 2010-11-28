@@ -1,4 +1,4 @@
-" 不显示Toolbar
+
 set go-=T
 
 " 字符编码设置
@@ -17,7 +17,7 @@ filetype plugin indent on
 syntax on
 
 " Color Scheme
-colorscheme wombat "desert 
+colorscheme desert "wombat
 
 " 在tab上只显示文件名
 set guitablabel=%t
@@ -36,12 +36,33 @@ set gfn=Monaco:h14
 " 显示行号
 set number
 
+" 总是显示status bar
+set laststatus=2
+"set statusline=[TYPE=%Y]\ [ENC=%{&enc}]\ [FENC=%{&fenc}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]
+set statusline=
+set statusline+=%h%1*%m%r%w%0*               " flags
+set statusline+=%-3.3n%0*\                   " buffer number
+set statusline+=%f\                          " file name
+set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
+set statusline+=%{&encoding},                " encoding
+set statusline+=%{&fileformat}]              " file format
+if filereadable(expand("~/.vim/plugin/vimbuddy.vim"))
+  set statusline+=\ %{VimBuddy()}            " vim buddy
+endif
+set statusline+=%=                           " right align
+set statusline+=0x%-8B\                   " current char
+set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+ 
+" cool补全
+set wildmenu
+set wildignore+=*.o,*~
+set suffixes+=.in,.a
+
 " configure expanding of tabs for various file types
 au BufRead,BufNewFile *.py set expandtab
 au BufRead,BufNewFile *.c set noexpandtab
 au BufRead,BufNewFile *.h set noexpandtab
 au BufRead,BufNewFile Makefile* set noexpandtab
-
 
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
@@ -195,3 +216,9 @@ endif
 
 " pylint plugin
 let g:pylint_onwrite = 0
+
+" =======================
+" 纯文本文件
+" =======================
+au BufRead,BufNewFile *.txt setlocal ft=txt
+nmap <F8> :TlistUpdate<CR>
