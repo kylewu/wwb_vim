@@ -14,7 +14,7 @@ setlocal expandtab
 setlocal nolisp
 setlocal autoindent
 setlocal indentexpr=GetPythonIndent(v:lnum)
-setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except,0#
+setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
 
 let s:maxoff = 50
 
@@ -194,6 +194,3 @@ function! GetPythonIndent(lnum)
     " In all other cases, line up with the start of the previous statement.
     return indent(sslnum)
 endfunction
-" Execute file being edited with <Shift> + e:
-map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
-let g:pydiction_location = '~/.vim/pydiction/complete-dict'

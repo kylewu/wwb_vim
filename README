@@ -1,1 +1,31 @@
 Personal vim setting file: .vimrc and .vim directory
+
+taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) 
+http://www.vim.org/scripts/script.php?script_id=273
+
+The NERD tree : A tree explorer plugin for navigating the filesystem 
+http://www.vim.org/scripts/script.php?script_id=1658
+
+The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes.
+http://www.vim.org/scripts/script.php?script_id=1218
+
+minibufexpl.vim : Elegant buffer explorer - takes very little screen space
+http://www.vim.org/scripts/script.php?script_id=159
+
+snipMate : TextMate-style snippets for Vim 
+http://www.vim.org/scripts/script.php?script_id=2540
+
+SuperTab : Do all your insert-mode completion with Tab!
+http://www.vim.org/scripts/script.php?script_id=182
+
+FuzzyFinder : buffer/file/command/tag/etc explorer with fuzzy matching 
+http://www.vim.org/scripts/script.php?script_id=1984
+
+python.vim : Enhanced version of the python syntax highlighting script 
+http://www.vim.org/scripts/script.php?script_id=790
+
+python.vim : A set of menus/shortcuts to work with Python files
+http://www.vim.org/scripts/script.php?script_id=30
+
+indent/python.vim : An alternative indentation script for python 
+http://www.vim.org/scripts/script.php?script_id=974
