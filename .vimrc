@@ -1,31 +1,40 @@
+" 不显示Toolbar
 set go-=T
 
-" =========vim setting
+" 字符编码设置
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,prc,taiwan,latin-1
 set termencoding=utf-8
 set fileformats=dos,unix
+
 " 解决consle输出乱码
 language messages zh_CN.utf-8
 
-filetype plugin indent on               " conf file for different languages are located in .vim/ftplugin
+" 自动检测文件类型并加载相应的设置
+filetype plugin indent on
+
+" 自动检测语法
 syntax on
+
+" Color Scheme
 colorscheme wombat "desert 
 
-" Only display file name on tab
+" 在tab上只显示文件名
 set guitablabel=%t
 
 " auto reload .vimrc
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-set noeb				" no error bell
-"set paste				" enable paste
+" no error bell
+set noeb
+
 set nocompatible
 
-set gfn=Monaco:h14  			" font
-set number 			        	" Turn on line numbers
-set showcmd                     " show (partial) command in status line
-set ruler                       " show line and column number
+" 设置字体
+set gfn=Monaco:h14  		
+
+" 显示行号
+set number
 
 " configure expanding of tabs for various file types
 au BufRead,BufNewFile *.py set expandtab
@@ -33,10 +42,10 @@ au BufRead,BufNewFile *.c set noexpandtab
 au BufRead,BufNewFile *.h set noexpandtab
 au BufRead,BufNewFile Makefile* set noexpandtab
 
+
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
-set expandtab           " enter spaces when tab is pressed
 set textwidth=120       " break lines when line length increases
 set tabstop=4           " use 4 spaces to represent tab
 set softtabstop=4
@@ -46,9 +55,8 @@ set autoindent          " copy indent from current line when starting a new line
 " make backspaces more powerfull
 set backspace=indent,eol,start
 
-set linebreak 					" 整词换行
-set wildmode=longest:full 		" Filename completion
-set wildmenu 					" Filename Completion
+" 整词换行
+set linebreak
 
 " ======================
 " Compile and Run
@@ -138,6 +146,7 @@ let g:T_AUTHOR = "Kyle Wu"
 let g:T_AUTHOR_EMAIL = "imkylewu@gmail.com"
 let g:T_AUTHOR_WEBSITE = "http://www.kylewu.net"
 let g:T_DATE_FORMAT = "%c"
+
 " =======================
 " SnipMate
 " =======================
@@ -164,7 +173,25 @@ nmap ,fh :FufHelp<CR>
 " =======================
 " Configure for PYTHON  
 " =======================
-" -----------------------
+
+if has("autocmd")
+
+  " Python 文件的一般设置，比如不要 tab 等
+  autocmd FileType python setlocal et | setlocal sta | setlocal sw=4
+
+  " Python Unittest 的一些设置
+  " 可以让我们在编写 Python 代码及 unittest 测试时不需要离开 vim
+  " 键入 :make 或者点击 gvim 工具条上的 make 按钮就自动执行测试用例
+  autocmd FileType python compiler pylint
+  autocmd FileType python setlocal makeprg=python\ ./alltests.py
+  autocmd BufNewFile,BufRead test*.py setlocal makeprg=python\ %
+
+  " 自动使用新文件模板
+  autocmd BufNewFile test*.py 0r ~/.vim/skeleton/test.py
+  autocmd BufNewFile alltests.py 0r ~/.vim/skeleton/alltests.py
+  "autocmd BufNewFile *.py 0r ~/.vim/skeleton/skeleton.py
+
+endif
+
 " pylint plugin
-autocmd FileType python compiler pylint
 let g:pylint_onwrite = 0
