@@ -31,7 +31,8 @@ set noeb
 set nocompatible
 
 " 设置字体
-set gfn=Monaco:h14  		
+set gfn=Monaco\ 12
+"set gfn=Monaco:h14
 
 " 显示行号
 set number
@@ -137,9 +138,8 @@ nmap <C-s> :wa<cr>
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplSplitBelow=0
 let g:miniBufExplDebugLevel=0
-map <F2> :MBEbp<cr>
-map <F3> :MBEbn<cr>
-map <F12> :TMiniBufExplorer<cr>
+map <F3> :MBEbp<cr>
+map <F4> :MBEbn<cr>
 
 " =======================
 " NERD Tree
@@ -156,7 +156,7 @@ map <F6> :NERDTreeClose<cr>
 let Tlist_Ctags_Cmd = '/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags'
 let Tlist_Auto_Open = 0 
 let Tlist_Exit_OnlyWindow = 1 
-map <F4> :TlistToggle<cr>
+map <F7> :TlistToggle<cr>
 
 " =======================
 " Template plugin
@@ -221,4 +221,4 @@ let g:pylint_onwrite = 0
 " 纯文本文件
 " =======================
 au BufRead,BufNewFile *.txt setlocal ft=txt
-nmap <F8> :TlistUpdate<CR>
+map <F8> :TlistUpdate<CR>
