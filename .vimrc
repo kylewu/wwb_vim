@@ -31,8 +31,8 @@ set noeb
 set nocompatible
 
 " 设置字体
-set gfn=Monaco\ 12
-"set gfn=Monaco:h14
+"set gfn=Monaco\ 12
+set gfn=Monaco:h14
 
 " 显示行号
 set number
@@ -163,15 +163,15 @@ map <F7> :TlistToggle<cr>
 " =======================
 let g:template_load = 1
 let g:template_tags_replacing = 1
-let g:T_AUTHOR = "Kyle Wu"
-let g:T_AUTHOR_EMAIL = "imkylewu@gmail.com"
-let g:T_AUTHOR_WEBSITE = "http://www.kylewu.net"
+let g:T_AUTHOR = "Wenbin Wu"
+let g:T_AUTHOR_EMAIL = "admin@wenbinwu.com"
+let g:T_AUTHOR_WEBSITE = "http://www.wenbinwu.com"
 let g:T_DATE_FORMAT = "%c"
 
 " =======================
 " SnipMate
 " =======================
-let g:snips_author = "Kyle Wu  imkylewu@gmail.com"
+let g:snips_author = "Wenbin Wu  admin@wenbinwu.com"
 
 " =======================
 " FuzzyFinder
@@ -206,11 +206,6 @@ if has("autocmd")
   autocmd FileType python compiler pylint
   autocmd FileType python setlocal makeprg=python\ ./alltests.py
   autocmd BufNewFile,BufRead test*.py setlocal makeprg=python\ %
-
-  " 自动使用新文件模板
-  autocmd BufNewFile test*.py 0r ~/.vim/skeleton/test.py
-  autocmd BufNewFile alltests.py 0r ~/.vim/skeleton/alltests.py
-  "autocmd BufNewFile *.py 0r ~/.vim/skeleton/skeleton.py
 
 endif
 
