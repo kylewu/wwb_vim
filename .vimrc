@@ -1,4 +1,12 @@
 
+filetype off
+" For pathogen.vim: auto load all plugins in .vim/bundle
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+set nocompatible
+
+" No ToolBar
 set go-=T
 
 " 字符编码设置
@@ -11,7 +19,9 @@ set fileformats=dos,unix
 language messages zh_CN.utf-8
 
 " 自动检测文件类型并加载相应的设置
-filetype plugin indent on
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
 
 " 自动检测语法
 syntax on
@@ -28,11 +38,9 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " no error bell
 set noeb
 
-set nocompatible
-
 " 设置字体
-set gfn=Monaco\ 12
-"set gfn=Monaco:h14
+"set gfn=Monaco\ 12
+set gfn=Monaco:h14
 
 " 显示行号
 set number
@@ -112,12 +120,20 @@ endfunction
 
 
 " ======================
+" Tab move
+" ======================
+" go to prev tab 
+nmap <S-H> gT
+" go to next tab
+nmap <S-L> gt
+
+" ======================
 " Windows move
 " ======================
-nmap ,wj <C-w>j
-nmap ,wk <C-w>k
-nmap ,wh <C-w>h
-nmap ,wl <C-w>l
+nmap <C-J> <C-w>j
+nmap <C-K> <C-w>k
+nmap <C-H> <C-w>h
+nmap <C-L> <C-w>l
 
 " =======================
 " 窗口操作的快捷键
@@ -163,33 +179,19 @@ map <F7> :TlistToggle<cr>
 " =======================
 let g:template_load = 1
 let g:template_tags_replacing = 1
-let g:T_AUTHOR = "Kyle Wu"
-let g:T_AUTHOR_EMAIL = "imkylewu@gmail.com"
-let g:T_AUTHOR_WEBSITE = "http://www.kylewu.net"
+let g:T_AUTHOR = "Wenbin Wu"
+let g:T_AUTHOR_EMAIL = "admin@wenbinwu.com"
+let g:T_AUTHOR_WEBSITE = "http://www.wenbinwu.com"
 let g:T_DATE_FORMAT = "%c"
 
 " =======================
 " SnipMate
 " =======================
-let g:snips_author = "Kyle Wu  imkylewu@gmail.com"
+let g:snips_author = "Wenbin Wu  admin@wenbin.com"
 
-" =======================
-" FuzzyFinder
-" =======================
-let g:fuf_modesDisable=[]
-let g:fuf_previewHeight=0
-nmap ,fb :FufBuffer<CR>
-nmap ,ff :FufFile<CR>
-nmap ,fd :FufDir<CR>
-nmap ,fmf :FufMruFile<CR>
-nmap ,fmc :FufMruCmd<CR>
-nmap ,ft :FufTag<CR>
-nmap ,ftf :FufTaggedFile<CR>
-nmap ,fjl :FufJumpList<CR>
-nmap ,fcl :FufChangeList<CR>
-nmap ,fq :FufQuickfix<CR>
-nmap ,fl :FufLine<CR>
-nmap ,fh :FufHelp<CR>
+" ======================
+" Align
+nmap ,ae :Tabularize/=<CR>
 
 " =======================
 " Configure for PYTHON  
@@ -203,19 +205,15 @@ if has("autocmd")
   " Python Unittest 的一些设置
   " 可以让我们在编写 Python 代码及 unittest 测试时不需要离开 vim
   " 键入 :make 或者点击 gvim 工具条上的 make 按钮就自动执行测试用例
-  autocmd FileType python compiler pylint
   autocmd FileType python setlocal makeprg=python\ ./alltests.py
   autocmd BufNewFile,BufRead test*.py setlocal makeprg=python\ %
 
   " 自动使用新文件模板
-  autocmd BufNewFile test*.py 0r ~/.vim/skeleton/test.py
-  autocmd BufNewFile alltests.py 0r ~/.vim/skeleton/alltests.py
+  "autocmd BufNewFile test*.py 0r ~/.vim/skeleton/test.py
+  "autocmd BufNewFile alltests.py 0r ~/.vim/skeleton/alltests.py
   "autocmd BufNewFile *.py 0r ~/.vim/skeleton/skeleton.py
 
 endif
-
-" pylint plugin
-let g:pylint_onwrite = 0
 
 " =======================
 " 纯文本文件
