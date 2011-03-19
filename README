@@ -1,5 +1,6 @@
 Personal vim setting file: .vimrc and .vim directory
 
+Part of plugins I use
 taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) 
 http://www.vim.org/scripts/script.php?script_id=273
 
@@ -29,3 +30,7 @@ http://www.vim.org/scripts/script.php?script_id=30
 
 indent/python.vim : An alternative indentation script for python 
 http://www.vim.org/scripts/script.php?script_id=974
+
+HowTo
+git submodule init
+git submodule update
