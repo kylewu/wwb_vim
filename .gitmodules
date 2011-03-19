@@ -7,15 +7,9 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/python.vim--Vasiliev.git"]
-	path = .vim/bundle/python.vim--Vasiliev.git
-	url = https://github.com/vim-scripts/python.vim--Vasiliev.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -31,15 +25,9 @@
 [submodule ".vim/bundle/wombat"]
 	path = .vim/bundle/wombat
 	url = https://github.com/vim-scripts/Wombat.git
-[submodule ".vim/bundle/taglist"]
-	path = .vim/bundle/taglist
-	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule ".vim/bundle/vimbuddy"]
 	path = .vim/bundle/vimbuddy
 	url = https://github.com/vim-scripts/vimbuddy.vim.git
 [submodule ".vim/bundle/minibufexpl"]
 	path = .vim/bundle/minibufexpl
 	url = https://github.com/vim-scripts/minibufexpl.vim.git
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
