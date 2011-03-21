@@ -39,8 +39,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-"set gfn=Monaco\ 12
-set gfn=Monaco:h14
+set gfn=Monaco\ 12
+"set gfn=Monaco:h14
 
 " 显示行号
 set number
@@ -87,6 +87,10 @@ set backspace=indent,eol,start
 
 " 整词换行
 set linebreak
+
+" save and restor fold
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 " ======================
 " Compile and Run
