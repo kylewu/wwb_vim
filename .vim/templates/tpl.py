@@ -1,13 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''
 
-    Author:
-        <T_AUTHOR> <<T_AUTHOR_EMAIL>>
-        <T_AUTHOR_WEBSITE>
- 
-    File:             <T_FILENAME>
-    Create Date:      <T_CREATE_DATE>
-
-'''
-
+__author__  = '<T_AUTHOR> <<T_AUTHOR_EMAIL>>'
+__credits__ = 'Python best'
+__date__    = '<T_CREATE_DATE>'
+__version__ = '0.1'
