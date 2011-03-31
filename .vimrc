@@ -89,8 +89,8 @@ set backspace=indent,eol,start
 set linebreak
 
 " save and restor fold
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
 
 " ======================
 " Compile and Run
