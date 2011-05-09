@@ -155,11 +155,11 @@ nmap <C-s> :wa<cr>
 " =======================
 " MiniBufferExplorer
 " =======================
-"let g:miniBufExplUseSingleClick = 1
-"let g:miniBufExplSplitBelow=0
-"let g:miniBufExplDebugLevel=0
-"map <F3> :MBEbp<cr>
-"map <F4> :MBEbn<cr>
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplSplitBelow=0
+let g:miniBufExplDebugLevel=0
+map <F3> :MBEbp<cr>
+map <F4> :MBEbn<cr>
 
 " =======================
 " NERD Tree
