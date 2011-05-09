@@ -39,8 +39,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-set gfn=Monaco\ 12
-"set gfn=Monaco:h14
+"set gfn=Monaco\ 12
+set gfn=Monaco:h14
 
 " 显示行号
 set number
@@ -155,11 +155,11 @@ nmap <C-s> :wa<cr>
 " =======================
 " MiniBufferExplorer
 " =======================
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplSplitBelow=0
-let g:miniBufExplDebugLevel=0
-map <F3> :MBEbp<cr>
-map <F4> :MBEbn<cr>
+"let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplSplitBelow=0
+"let g:miniBufExplDebugLevel=0
+"map <F3> :MBEbp<cr>
+"map <F4> :MBEbn<cr>
 
 " =======================
 " NERD Tree
@@ -173,7 +173,7 @@ map <F6> :NERDTreeClose<cr>
 " =======================
 " TagList Tree
 " =======================
-let Tlist_Ctags_Cmd = '/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags'
+let Tlist_Ctags_Cmd = '/opt/local/var/macports/software/ctags/5.8_0+universal/opt/local/bin/ctags'
 let Tlist_Auto_Open = 0 
 let Tlist_Exit_OnlyWindow = 1 
 map <F7> :TlistToggle<cr>
@@ -192,6 +192,22 @@ let g:T_DATE_FORMAT = "%c"
 " SnipMate
 " =======================
 let g:snips_author = "Wenbin Wu  admin@wenbin.com"
+
+" =======================
+" Command-T
+" =======================
+nmap <silent> ,t :CommandT<CR>
+
+" =======================
+" GUndo
+" =======================
+nmap <silent> ,u :GundoToggle<CR>
+
+" =======================
+" EasyMotion
+" =======================
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 
 " ======================
 " Align

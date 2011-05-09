@@ -49,3 +49,12 @@
 [submodule ".vim/bundle/easymotion"]
 	path = .vim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/pydoc"]
+	path = .vim/bundle/pydoc
+	url = https://github.com/fs111/pydoc.vim.git
+[submodule ".vim/bundle/minibufepl"]
+	path = .vim/bundle/minibufepl
+	url = https://github.com/sontek/minibufexpl.vim.git
