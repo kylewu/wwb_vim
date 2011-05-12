@@ -127,9 +127,9 @@ endfunction
 " Tab move
 " ======================
 " go to prev tab 
-nmap <S-H> gT
+"nmap <S-H> gT
 " go to next tab
-nmap <S-L> gt
+"nmap <S-L> gt
 
 " ======================
 " Windows move
@@ -158,8 +158,10 @@ nmap <C-s> :wa<cr>
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplSplitBelow=0
 let g:miniBufExplDebugLevel=0
-map <F3> :MBEbp<cr>
-map <F4> :MBEbn<cr>
+"map <F3> :MBEbp<cr>
+"map <F4> :MBEbn<cr>
+nmap <S-H> :MBEbp<cr>
+nmap <S-L> :MBEbn<cr>
 
 " =======================
 " NERD Tree
