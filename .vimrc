@@ -205,12 +205,6 @@ nmap <silent> ,t :CommandT<CR>
 " =======================
 nmap <silent> ,u :GundoToggle<CR>
 
-" =======================
-" EasyMotion
-" =======================
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade  Comment
-
 " ======================
 " Align
 nmap ,ae :Tabularize/=<CR>
