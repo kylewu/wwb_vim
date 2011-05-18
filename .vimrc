@@ -235,4 +235,4 @@ endif
 " 纯文本文件
 " =======================
 au BufRead,BufNewFile *.txt setlocal ft=txt
-map <F8> :TlistUpdate<CR>
+map <F8> :Tlist<CR>
