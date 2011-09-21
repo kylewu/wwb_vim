@@ -1,4 +1,3 @@
-
 filetype off
 " For pathogen.vim: auto load all plugins in .vim/bundle
 call pathogen#runtime_append_all_bundles()
@@ -7,7 +6,7 @@ call pathogen#helptags()
 set nocompatible
 
 " No ToolBar
-set go-=T
+set go=aegirLt
 
 " 字符编码设置
 set encoding=utf-8
@@ -39,8 +38,14 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-"set gfn=Monaco\ 12
-set gfn=Monaco:h14
+set gfn=Monaco\ 12
+"set gfn=Monaco:h14
+
+set pdev=pdf
+set printoptions=paper:A4,syntax:y,wrap:y
+" In Ubuntu, install cups-pdf to support print out pdf file
+" apt-get install cups-pdf
+
 
 " 显示行号
 set number
@@ -61,6 +66,21 @@ endif
 set statusline+=%=                           " right align
 set statusline+=0x%-8B\                   " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline guibg=magenta
+  elseif a:mode == 'r'
+    hi statusline guibg=blue
+  else
+    hi statusline guibg=red
+  endif
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline guibg=green
+
+" default the statusline to green when entering Vim
+hi statusline guibg=green
  
 " cool补全
 set wildmenu
@@ -122,7 +142,6 @@ function! CompileAndRun()
 	endif
 endfunction
 
-
 " ======================
 " Tab move
 " ======================
@@ -171,11 +190,12 @@ let g:NERDChristmasTree = 1
 let g:NEROTreeWinSize = 20
 map <F5> :NERDTree<cr>
 map <F6> :NERDTreeClose<cr>
+let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " =======================
 " TagList Tree
 " =======================
-let Tlist_Ctags_Cmd = '/opt/local/var/macports/software/ctags/5.8_0+universal/opt/local/bin/ctags'
+"let Tlist_Ctags_Cmd = '/opt/local/var/macports/software/ctags/5.8_0+universal/opt/local/bin/ctags'
 let Tlist_Auto_Open = 0 
 let Tlist_Exit_OnlyWindow = 1 
 map <F7> :TlistToggle<cr>
@@ -210,7 +230,7 @@ nmap <silent> ,u :GundoToggle<CR>
 nmap ,ae :Tabularize/=<CR>
 
 " =======================
-" Configure for PYTHON  
+" Configure for PYTHON
 " =======================
 
 if has("autocmd")
@@ -236,3 +256,6 @@ endif
 " =======================
 au BufRead,BufNewFile *.txt setlocal ft=txt
 map <F8> :Tlist<CR>
+       
+"let g:pyflakes_use_quickfix = 0
+set listchars=trail:.
