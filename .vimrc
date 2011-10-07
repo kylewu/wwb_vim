@@ -38,8 +38,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-set gfn=Monaco\ 12
-"set gfn=Monaco:h14
+"set gfn=Monaco\ 12
+set gfn=Monaco:h14
 
 set pdev=pdf
 set printoptions=paper:A4,syntax:y,wrap:y
@@ -146,9 +146,9 @@ endfunction
 " Tab move
 " ======================
 " go to prev tab 
-"nmap <S-H> gT
+nmap <S-H> gT
 " go to next tab
-"nmap <S-L> gt
+nmap <S-L> gt
 
 " ======================
 " Windows move
@@ -179,8 +179,8 @@ let g:miniBufExplSplitBelow=0
 let g:miniBufExplDebugLevel=0
 "map <F3> :MBEbp<cr>
 "map <F4> :MBEbn<cr>
-nmap <S-H> :MBEbp<cr>
-nmap <S-L> :MBEbn<cr>
+"nmap <S-H> :MBEbp<cr>
+"nmap <S-L> :MBEbn<cr>
 
 " =======================
 " NERD Tree
@@ -206,14 +206,14 @@ map <F7> :TlistToggle<cr>
 let g:template_load = 1
 let g:template_tags_replacing = 1
 let g:T_AUTHOR = "Wenbin Wu"
-let g:T_AUTHOR_EMAIL = "admin@wenbinwu.com"
+let g:T_AUTHOR_EMAIL = "wwu@mozilla.com"
 let g:T_AUTHOR_WEBSITE = "http://www.wenbinwu.com"
 let g:T_DATE_FORMAT = "%c"
 
 " =======================
 " SnipMate
 " =======================
-let g:snips_author = "Wenbin Wu  admin@wenbin.com"
+let g:snips_author = "Wenbin Wu  wwu@mozilla.com"
 
 " =======================
 " Command-T
