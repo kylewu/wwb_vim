@@ -10,8 +10,8 @@ http://www.vim.org/scripts/script.php?script_id=1658
 The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes.
 http://www.vim.org/scripts/script.php?script_id=1218
 
-minibufexpl.vim : Elegant buffer explorer - takes very little screen space
-http://www.vim.org/scripts/script.php?script_id=159
+#minibufexpl.vim : Elegant buffer explorer - takes very little screen space
+#http://www.vim.org/scripts/script.php?script_id=159
 
 snipMate : TextMate-style snippets for Vim 
 http://www.vim.org/scripts/script.php?script_id=2540
