@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/vimbuddy"]
 	path = .vim/bundle/vimbuddy
 	url = https://github.com/vim-scripts/vimbuddy.vim.git
-[submodule ".vim/bundle/minibufexpl"]
-	path = .vim/bundle/minibufexpl
-	url = https://github.com/vim-scripts/minibufexpl.vim.git
 [submodule ".vim/bundle/taglist"]
 	path = .vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
@@ -52,6 +49,3 @@
 [submodule ".vim/bundle/pydoc"]
 	path = .vim/bundle/pydoc
 	url = https://github.com/fs111/pydoc.vim.git
-[submodule ".vim/bundle/minibufepl"]
-	path = .vim/bundle/minibufepl
-	url = https://github.com/sontek/minibufexpl.vim.git
