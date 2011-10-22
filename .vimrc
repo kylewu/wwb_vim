@@ -6,7 +6,7 @@ call pathogen#helptags()
 set nocompatible
 
 " No ToolBar
-set go=aegirLt
+set go=aegir
 
 " 字符编码设置
 set encoding=utf-8
@@ -15,7 +15,7 @@ set termencoding=utf-8
 set fileformats=dos,unix
 
 " 解决consle输出乱码
-language messages zh_CN.utf-8
+"language messages zh_CN.utf-8
 
 " 自动检测文件类型并加载相应的设置
 filetype on           " Enable filetype detection
@@ -27,6 +27,7 @@ syntax on
 
 " Color Scheme
 colorscheme desert "wombat
+set background=dark
 
 " 在tab上只显示文件名
 set guitablabel=%t
@@ -38,8 +39,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-"set gfn=Monaco\ 12
-set gfn=Monaco:h14
+set gfn=Monaco\ 12
+"set gfn=Monaco:h14
 
 set pdev=pdf
 set printoptions=paper:A4,syntax:y,wrap:y
