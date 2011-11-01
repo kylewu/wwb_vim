@@ -39,7 +39,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-set gfn=Monaco\ 12
+set gfn=Monaco\ 11
 "set gfn=Monaco:h14
 
 set pdev=pdf
