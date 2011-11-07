@@ -47,7 +47,6 @@ set printoptions=paper:A4,syntax:y,wrap:y
 " In Ubuntu, install cups-pdf to support print out pdf file
 " apt-get install cups-pdf
 
-
 " 显示行号
 set number
 
@@ -82,7 +81,7 @@ au InsertLeave * hi statusline guibg=green
 
 " default the statusline to green when entering Vim
 hi statusline guibg=green
- 
+
 " cool补全
 set wildmenu
 set wildignore+=*.o,*~
@@ -266,3 +265,9 @@ set listchars=trail:.
 map \co :CoffeeCompile watch vert<CR>:setl scrollbind<CR><C-W>20>
 map \cj :!coffee -cb %:p<CR>
 autocmd BufEnter,BufReadPre *.coffee setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+
+" ======================
+" ctrlp
+" ======================
+let g:ctrlp_working_path_mode = 2
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
