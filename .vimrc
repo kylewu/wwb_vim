@@ -267,3 +267,9 @@ let g:gist_clip_command = 'pbcopy' "Mac OS
 let g:gist_detect_filetype = 1
 let g:github_user = 'kylewu'
 let g:github_token = 'c07d070758c9a148ac4ea96240bb6a6c'
+
+" ======================
+" ctrlp
+" ======================
+let g:ctrlp_working_path_mode = 2
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
