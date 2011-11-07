@@ -97,7 +97,7 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
-set textwidth=120       " break lines when line length increases
+set textwidth=100       " break lines when line length increases
 set tabstop=4           " use 4 spaces to represent tab
 set softtabstop=4
 set shiftwidth=4        " number of spaces to use for auto indent
@@ -260,3 +260,9 @@ map <F8> :Tlist<CR>
        
 "let g:pyflakes_use_quickfix = 0
 set listchars=trail:.
+
+" =======================
+" CoffeeScript
+map \co :CoffeeCompile watch vert<CR>:setl scrollbind<CR><C-W>20>
+map \cj :!coffee -cb %:p<CR>
+autocmd BufEnter,BufReadPre *.coffee setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
