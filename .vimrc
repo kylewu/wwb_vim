@@ -46,7 +46,6 @@ set printoptions=paper:A4,syntax:y,wrap:y
 " In Ubuntu, install cups-pdf to support print out pdf file
 " apt-get install cups-pdf
 
-
 " 显示行号
 set number
 
@@ -81,7 +80,7 @@ au InsertLeave * hi statusline guibg=green
 
 " default the statusline to green when entering Vim
 hi statusline guibg=green
- 
+
 " cool补全
 set wildmenu
 set wildignore+=*.o,*~
@@ -259,3 +258,11 @@ map <F8> :Tlist<CR>
        
 "let g:pyflakes_use_quickfix = 0
 set listchars=trail:.
+
+" ======================
+" Gist
+" ======================
+let g:gist_clip_command = 'pbcopy' "Mac OS
+let g:gist_detect_filetype = 1
+let g:github_user = 'kylewu'
+let g:github_token = 'c07d070758c9a148ac4ea96240bb6a6c'
