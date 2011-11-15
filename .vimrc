@@ -39,7 +39,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-set gfn=Monaco\ 11
+set gfn=DroidSansMono\ 10 "Monaco\ 11
 "set gfn=Monaco:h14
 
 set pdev=pdf
@@ -265,6 +265,14 @@ set listchars=trail:.
 map \co :CoffeeCompile watch vert<CR>:setl scrollbind<CR><C-W>20>
 map \cj :!coffee -cb %:p<CR>
 autocmd BufEnter,BufReadPre *.coffee setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+
+" ======================
+" JS
+autocmd BufEnter,BufReadPre *.js setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+
+" ======================
+" HTML
+autocmd BufEnter,BufReadPre *.html setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
 
 " ======================
 " ctrlp
