@@ -93,6 +93,11 @@ au BufRead,BufNewFile *.c set noexpandtab
 au BufRead,BufNewFile *.h set noexpandtab
 au BufRead,BufNewFile Makefile* set noexpandtab
 
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
@@ -273,6 +278,7 @@ autocmd BufEnter,BufReadPre *.js setl ts=2 | setl softtabstop=2 |setl shiftwidth
 " ======================
 " HTML
 autocmd BufEnter,BufReadPre *.html setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+autocmd BufEnter,BufReadPre *.jade setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
 
 " ======================
 " ctrlp
