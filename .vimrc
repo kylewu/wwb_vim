@@ -6,7 +6,7 @@ call pathogen#helptags()
 set nocompatible
 
 " No ToolBar
-set go=aegir
+set go=aeg
 
 " 字符编码设置
 set encoding=utf-8
@@ -40,7 +40,9 @@ set noeb
 
 " 设置字体
 "set gfn=Monaco\ 11
-set gfn=Inconsolata:h16
+"set gfn=Inconsolata:h16
+set gfn=DroidSansMono\ 11 "Monaco\ 11
+"set gfn=Monaco:h14
 
 set pdev=pdf
 set printoptions=paper:A4,syntax:y,wrap:y
@@ -53,45 +55,54 @@ set number
 " 总是显示status bar
 set laststatus=2
 "set statusline=[TYPE=%Y]\ [ENC=%{&enc}]\ [FENC=%{&fenc}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]
-set statusline=
-set statusline+=%h%1*%m%r%w%0*               " flags
-set statusline+=%-3.3n%0*\                   " buffer number
-set statusline+=%f\                          " file name
-set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
-set statusline+=%{&encoding},                " encoding
-set statusline+=%{&fileformat}]              " file format
-if filereadable(expand("~/.vim/plugin/vimbuddy.vim"))
-  set statusline+=\ %{VimBuddy()}            " vim buddy
-endif
-set statusline+=%=                           " right align
-set statusline+=0x%-8B\                   " current char
-set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
-function! InsertStatuslineColor(mode)
-  if a:mode == 'i'
-    hi statusline guibg=magenta
-  elseif a:mode == 'r'
-    hi statusline guibg=blue
-  else
-    hi statusline guibg=red
-  endif
-endfunction
+"set statusline=
+"set statusline+=%h%1*%m%r%w%0*               " flags
+"set statusline+=%-3.3n%0*\                   " buffer number
+"set statusline+=%f\                          " file name
+"set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
+"set statusline+=%{&encoding},                " encoding
+"set statusline+=%{&fileformat}]              " file format
+"if filereadable(expand("~/.vim/plugin/vimbuddy.vim"))
+  "set statusline+=\ %{VimBuddy()}            " vim buddy
+"endif
+"set statusline+=%=                           " right align
+"set statusline+=0x%-8B\                   " current char
+"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+"function! InsertStatuslineColor(mode)
+  "if a:mode == 'i'
+    "hi statusline guibg=magenta
+  "elseif a:mode == 'r'
+    "hi statusline guibg=blue
+  "else
+    "hi statusline guibg=red
+  "endif
+"endfunction
 
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline guibg=green
+"au InsertEnter * call InsertStatuslineColor(v:insertmode)
+"au InsertLeave * hi statusline guibg=green
 
 " default the statusline to green when entering Vim
-hi statusline guibg=green
+"hi statusline guibg=green
 
 " cool补全
 set wildmenu
 set wildignore+=*.o,*~
 set suffixes+=.in,.a
 
+" Global search
+map ,s :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+
 " configure expanding of tabs for various file types
 au BufRead,BufNewFile *.py set expandtab
+au BufRead,BufNewFile *.jade set expandtab
 au BufRead,BufNewFile *.c set noexpandtab
 au BufRead,BufNewFile *.h set noexpandtab
 au BufRead,BufNewFile Makefile* set noexpandtab
+
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
@@ -265,6 +276,19 @@ set listchars=trail:.
 map \co :CoffeeCompile watch vert<CR>:setl scrollbind<CR><C-W>20>
 map \cj :!coffee -cb %:p<CR>
 autocmd BufEnter,BufReadPre *.coffee setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+
+" ======================
+" jade
+map \cd :!jade %:p<CR>
+
+" ======================
+" JS
+autocmd BufEnter,BufReadPre *.js setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+
+" ======================
+" HTML
+autocmd BufEnter,BufReadPre *.html setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+autocmd BufEnter,BufReadPre *.jade setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
 
 " ======================
 " ctrlp
