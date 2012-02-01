@@ -39,6 +39,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
+"set gfn=Monaco\ 11
+"set gfn=Inconsolata:h16
 set gfn=DroidSansMono\ 11 "Monaco\ 11
 "set gfn=Monaco:h14
 
@@ -106,9 +108,9 @@ vnoremap k gk
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
 set textwidth=100       " break lines when line length increases
-set tabstop=4           " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4        " number of spaces to use for auto indent
+set tabstop=2           " use 4 spaces to represent tab
+set softtabstop=2
+set shiftwidth=2        " number of spaces to use for auto indent
 set autoindent          " copy indent from current line when starting a new line
 
 " make backspaces more powerfull
