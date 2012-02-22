@@ -41,8 +41,8 @@ set noeb
 " 设置字体
 "set gfn=Monaco\ 11
 "set gfn=Inconsolata:h16
-set gfn=DroidSansMono\ 11 "Monaco\ 11
-"set gfn=Monaco:h14
+"set gfn=DroidSansMono\ 11 "Monaco\ 11
+set gfn=Monaco:h14
 
 set pdev=pdf
 set printoptions=paper:A4,syntax:y,wrap:y
@@ -289,6 +289,8 @@ autocmd BufEnter,BufReadPre *.js setl ts=2 | setl softtabstop=2 |setl shiftwidth
 " HTML
 autocmd BufEnter,BufReadPre *.html setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
 autocmd BufEnter,BufReadPre *.jade setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+
+autocmd BufEnter,BufReadPre *.tex set tw=0
 
 " ======================
 " ctrlp
