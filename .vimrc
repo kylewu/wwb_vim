@@ -107,7 +107,7 @@ vnoremap k gk
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
-set textwidth=100       " break lines when line length increases
+set textwidth=80        " break lines when line length increases
 set tabstop=2           " use 4 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
