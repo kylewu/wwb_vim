@@ -89,12 +89,11 @@ set wildmenu
 set wildignore+=*.o,*~
 set suffixes+=.in,.a
 
-" Global search
-map ,s :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-
 " configure expanding of tabs for various file types
 au BufRead,BufNewFile *.py set expandtab
 au BufRead,BufNewFile *.jade set expandtab
+au BufRead,BufNewFile *.coffee set expandtab
+
 au BufRead,BufNewFile *.c set noexpandtab
 au BufRead,BufNewFile *.h set noexpandtab
 au BufRead,BufNewFile Makefile* set noexpandtab
@@ -108,9 +107,9 @@ vnoremap k gk
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
 set textwidth=80        " break lines when line length increases
-set tabstop=2           " use 4 spaces to represent tab
-set softtabstop=2
+set tabstop=2           " use 2 spaces to represent tab
 set shiftwidth=2        " number of spaces to use for auto indent
+set softtabstop=2
 set autoindent          " copy indent from current line when starting a new line
 
 " make backspaces more powerfull
@@ -247,7 +246,7 @@ nmap ,ae :Tabularize/=<CR>
 if has("autocmd")
 
   " Python 文件的一般设置，比如不要 tab 等
-  autocmd FileType python setlocal et | setlocal sta | setlocal sw=4
+  autocmd FileType python setlocal et | sta | sw=4 | ts=4 | sts=4
 
   " Python Unittest 的一些设置
   " 可以让我们在编写 Python 代码及 unittest 测试时不需要离开 vim
@@ -263,13 +262,17 @@ if has("autocmd")
 endif
 
 " =======================
+" TimeStamp
+" =======================
+let g:timestamp_regexp = '\v\C%(<%(%([lL]ast) %([cC]hanged?|modified)|Modified)\s*:\s+)@<=\a+ \d{2} \a+ \d{4} \d{2}:\d{2}:\d{2} [AP]M ?%(\a+)?|TIMESTAMP'
+
+" =======================
 " 纯文本文件
 " =======================
 au BufRead,BufNewFile *.txt setlocal ft=txt
 map <F8> :Tlist<CR>
        
 "let g:pyflakes_use_quickfix = 0
-set listchars=trail:.
 
 " =======================
 " CoffeeScript
@@ -297,3 +300,14 @@ autocmd BufEnter,BufReadPre *.tex set tw=0
 " ======================
 let g:ctrlp_working_path_mode = 2
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+" files.
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
+        \ &tabstop, &shiftwidth, &textwidth)
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
