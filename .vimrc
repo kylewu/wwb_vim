@@ -264,7 +264,7 @@ endif
 " =======================
 " TimeStamp
 " =======================
-let g:timestamp_regexp = '\v\C%(<%(%([lL]ast) %([cC]hanged?|modified)|Modified)\s*:\s+)@<=\a+ \d{2} \a+ \d{4} \d{2}:\d{2}:\d{2} [AP]M ?%(\a+)?|TIMESTAMP'
+"let g:timestamp_regexp = '\v\C%(<%(%([lL]ast) %([cC]hanged?|modified)|Modified)\s*:\s+)@<=\a+ \d{2} \a+ \d{4} \d{2}:\d{2}:\d{2} [AP]M ?%(\a+)?|TIMESTAMP'
 
 " =======================
 " 纯文本文件
