@@ -205,7 +205,7 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " =======================
 " TagList Tree
 " =======================
-"let Tlist_Ctags_Cmd = '/opt/local/var/macports/software/ctags/5.8_0+universal/opt/local/bin/ctags'
+let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 let Tlist_Auto_Open = 0 
 let Tlist_Exit_OnlyWindow = 1 
 map <F7> :TlistToggle<cr>
@@ -226,33 +226,19 @@ let g:T_DATE_FORMAT = "%c"
 let g:snips_author = "Wenbin Wu  wwu@mozilla.com"
 
 " =======================
-" Command-T
-" =======================
-nmap <silent> ,t :CommandT<CR>
-
-" =======================
-" GUndo
-" =======================
-nmap <silent> ,u :GundoToggle<CR>
-
-" ======================
-" Align
-nmap ,ae :Tabularize/=<CR>
-
-" =======================
 " Configure for PYTHON
 " =======================
 
 if has("autocmd")
 
   " Python 文件的一般设置，比如不要 tab 等
-  autocmd FileType python setlocal et | sta | sw=4 | ts=4 | sts=4
+  autocmd FileType python setl et | setl sta | setl sw=4 | setl ts=4 | setl sts=4
 
   " Python Unittest 的一些设置
   " 可以让我们在编写 Python 代码及 unittest 测试时不需要离开 vim
   " 键入 :make 或者点击 gvim 工具条上的 make 按钮就自动执行测试用例
-  autocmd FileType python setlocal makeprg=python\ ./alltests.py
-  autocmd BufNewFile,BufRead test*.py setlocal makeprg=python\ %
+  "autocmd FileType python setlocal makeprg=python\ ./alltests.py
+  "autocmd BufNewFile,BufRead test*.py setlocal makeprg=python\ %
 
   " 自动使用新文件模板
   "autocmd BufNewFile test*.py 0r ~/.vim/skeleton/test.py
