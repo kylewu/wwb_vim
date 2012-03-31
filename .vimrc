@@ -54,49 +54,11 @@ set number
 
 " 总是显示status bar
 set laststatus=2
-"set statusline=[TYPE=%Y]\ [ENC=%{&enc}]\ [FENC=%{&fenc}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]
-"set statusline=
-"set statusline+=%h%1*%m%r%w%0*               " flags
-"set statusline+=%-3.3n%0*\                   " buffer number
-"set statusline+=%f\                          " file name
-"set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
-"set statusline+=%{&encoding},                " encoding
-"set statusline+=%{&fileformat}]              " file format
-"if filereadable(expand("~/.vim/plugin/vimbuddy.vim"))
-  "set statusline+=\ %{VimBuddy()}            " vim buddy
-"endif
-"set statusline+=%=                           " right align
-"set statusline+=0x%-8B\                   " current char
-"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
-"function! InsertStatuslineColor(mode)
-  "if a:mode == 'i'
-    "hi statusline guibg=magenta
-  "elseif a:mode == 'r'
-    "hi statusline guibg=blue
-  "else
-    "hi statusline guibg=red
-  "endif
-"endfunction
-
-"au InsertEnter * call InsertStatuslineColor(v:insertmode)
-"au InsertLeave * hi statusline guibg=green
-
-" default the statusline to green when entering Vim
-"hi statusline guibg=green
 
 " cool补全
 set wildmenu
 set wildignore+=*.o,*~
 set suffixes+=.in,.a
-
-" configure expanding of tabs for various file types
-au BufRead,BufNewFile *.py set expandtab
-au BufRead,BufNewFile *.jade set expandtab
-au BufRead,BufNewFile *.coffee set expandtab
-
-au BufRead,BufNewFile *.c set noexpandtab
-au BufRead,BufNewFile *.h set noexpandtab
-au BufRead,BufNewFile Makefile* set noexpandtab
 
 nnoremap j gj
 nnoremap k gk
@@ -107,9 +69,9 @@ vnoremap k gk
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
 set textwidth=80        " break lines when line length increases
-set tabstop=2           " use 2 spaces to represent tab
-set shiftwidth=2        " number of spaces to use for auto indent
-set softtabstop=2
+set tabstop=4           " use 4 spaces to represent tab
+set shiftwidth=4        " number of spaces to use for auto indent
+set softtabstop=4
 set autoindent          " copy indent from current line when starting a new line
 
 " make backspaces more powerfull
@@ -226,73 +188,64 @@ let g:T_DATE_FORMAT = "%c"
 let g:snips_author = "Wenbin Wu  wwu@mozilla.com"
 
 " =======================
-" Command-T
-" =======================
-nmap <silent> ,t :CommandT<CR>
-
-" =======================
-" GUndo
-" =======================
-nmap <silent> ,u :GundoToggle<CR>
-
-" ======================
-" Align
-nmap ,ae :Tabularize/=<CR>
-
-" =======================
 " Configure for PYTHON
 " =======================
-
 if has("autocmd")
 
   " Python 文件的一般设置，比如不要 tab 等
-  autocmd FileType python setlocal et | sta | sw=4 | ts=4 | sts=4
+  "autocmd FileType python setlocal et | sta
 
   " Python Unittest 的一些设置
   " 可以让我们在编写 Python 代码及 unittest 测试时不需要离开 vim
   " 键入 :make 或者点击 gvim 工具条上的 make 按钮就自动执行测试用例
-  autocmd FileType python setlocal makeprg=python\ ./alltests.py
-  autocmd BufNewFile,BufRead test*.py setlocal makeprg=python\ %
+  "autocmd FileType python setlocal makeprg=python\ ./alltests.py
+  "autocmd BufNewFile,BufRead test*.py setlocal makeprg=python\ %
 
   " 自动使用新文件模板
   "autocmd BufNewFile test*.py 0r ~/.vim/skeleton/test.py
   "autocmd BufNewFile alltests.py 0r ~/.vim/skeleton/alltests.py
   "autocmd BufNewFile *.py 0r ~/.vim/skeleton/skeleton.py
-
 endif
 
 " =======================
-" TimeStamp
+" Special
 " =======================
-"let g:timestamp_regexp = '\v\C%(<%(%([lL]ast) %([cC]hanged?|modified)|Modified)\s*:\s+)@<=\a+ \d{2} \a+ \d{4} \d{2}:\d{2}:\d{2} [AP]M ?%(\a+)?|TIMESTAMP'
+au BufRead,BufNewFile *.c set noexpandtab
+au BufRead,BufNewFile *.h set noexpandtab
+au BufRead,BufNewFile Makefile* set noexpandtab
+
+" =======================
+" Python
+" =======================
+au BufEnter,BufNewFile *.py set expandtab
+autocmd BufEnter,BufReadPre *.py setl ts=4 | setl sts=4 |setl sw=4
 
 " =======================
 " 纯文本文件
 " =======================
-au BufRead,BufNewFile *.txt setlocal ft=txt
+au BufRead,BufNewFile *.txt setl ft=txt
 map <F8> :Tlist<CR>
        
-"let g:pyflakes_use_quickfix = 0
-
 " =======================
 " CoffeeScript
+au BufRead,BufNewFile *.coffee set expandtab 
+autocmd BufEnter,BufReadPre *.coffee setl ts=2 | setl sts=2 |setl sw=2
 map \co :CoffeeCompile watch vert<CR>:setl scrollbind<CR><C-W>20>
 map \cj :!coffee -cb %:p<CR>
-autocmd BufEnter,BufReadPre *.coffee setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
 
 " ======================
 " jade
+autocmd BufEnter,BufReadPre *.jade set expandtab
+autocmd BufEnter,BufReadPre *.jade setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
 map \cd :!jade %:p<CR>
 
 " ======================
 " JS
-autocmd BufEnter,BufReadPre *.js setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
+autocmd BufEnter,BufReadPre *.js setl ts=2 | setl sts=2 |setl sw=2
 
 " ======================
 " HTML
-autocmd BufEnter,BufReadPre *.html setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
-autocmd BufEnter,BufReadPre *.jade setl ts=2 | setl softtabstop=2 |setl shiftwidth=2
-
+autocmd BufEnter,BufReadPre *.html setl ts=2 | setl sts=2 |setl sw=2
 autocmd BufEnter,BufReadPre *.tex set tw=0
 
 " ======================
