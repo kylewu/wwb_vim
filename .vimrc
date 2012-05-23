@@ -69,9 +69,9 @@ vnoremap k gk
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
 set textwidth=80        " break lines when line length increases
-set tabstop=4           " use 4 spaces to represent tab
-set shiftwidth=4        " number of spaces to use for auto indent
-set softtabstop=4
+set tabstop=2           " use 4 spaces to represent tab
+set shiftwidth=2        " number of spaces to use for auto indent
+set softtabstop=2
 set autoindent          " copy indent from current line when starting a new line
 
 " make backspaces more powerfull
@@ -167,10 +167,12 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " =======================
 " TagList Tree
 " =======================
-let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
-let Tlist_Auto_Open = 0 
-let Tlist_Exit_OnlyWindow = 1 
-map <F7> :TlistToggle<cr>
+"let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
+"let Tlist_Auto_Open = 0 
+"let Tlist_Exit_OnlyWindow = 1 
+"map <F7> :TlistToggle<cr>
+
+nmap <F7> :TagbarToggle<CR> 
 
 " =======================
 " Template plugin
@@ -241,7 +243,7 @@ map \cd :!jade %:p<CR>
 
 " ======================
 " JS
-autocmd BufEnter,BufReadPre *.js setl ts=2 | setl sts=2 |setl sw=2
+autocmd BufEnter,BufReadPre *.js setl ts=2 | setl sts=2 |setl sw=2 | setl expandtab
 
 " ======================
 " HTML
@@ -264,3 +266,11 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+set fillchars+=stl:\ ,stlnc:\
+
+let $JS_CMD='node'
+
+" ======================
+" indent-guides
+" ======================
