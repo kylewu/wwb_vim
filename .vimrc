@@ -271,6 +271,7 @@ set fillchars+=stl:\ ,stlnc:\
 
 let $JS_CMD='node'
 
-" ======================
-" indent-guides
-" ======================
+syn region javaScriptFunctionFold  start="{" end="}" transparent fold
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1

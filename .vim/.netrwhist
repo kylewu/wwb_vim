@@ -1,3 +1,3 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/home/wenbin/dev/coop/apps/campus/views'
+let g:netrw_dirhist_1='/Users/wenbinwu/dev/openwnn-legacy-read-only/openwnn-legacy/res/values-ja'
