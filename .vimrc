@@ -72,6 +72,7 @@ vnoremap k gk
 set textwidth=80        " break lines when line length increases
 set fo=cqt
 set wm=0
+set cc=80
 
 set tabstop=2           " use 4 spaces to represent tab
 set shiftwidth=2        " number of spaces to use for auto indent
@@ -235,3 +236,6 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 syn region javaScriptFunctionFold  start="{" end="}" transparent fold
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
