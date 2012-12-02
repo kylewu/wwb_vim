@@ -39,10 +39,10 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-"set gfn=Monaco\ 11
+set gfn=Monaco\ 11
 "set gfn=Inconsolata:h16
 "set gfn=DroidSansMono\ 11 "Monaco\ 11
-set gfn=Monaco:h14
+"set gfn=Monaco:h14
 
 set pdev=pdf
 set printoptions=paper:A4,syntax:y,wrap:y
@@ -256,6 +256,15 @@ autocmd BufEnter,BufReadPre *.tex set tw=0
 let g:ctrlp_working_path_mode = 2
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 
+" ======================
+" ACK
+" ======================
+" Ubuntu only
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" ======================
+" Modeline
+" ======================
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
