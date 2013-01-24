@@ -4,6 +4,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 set nocompatible
+set nomodeline
 
 " No ToolBar
 set go=aeg
@@ -72,7 +73,6 @@ vnoremap k gk
 set textwidth=80        " break lines when line length increases
 set fo=cqt
 set wm=0
-set cc=80
 
 set tabstop=2           " use 4 spaces to represent tab
 set shiftwidth=2        " number of spaces to use for auto indent
@@ -218,11 +218,10 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
-" display tab
-"set list
-"set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
 syn region javaScriptFunctionFold  start="{" end="}" transparent fold
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+" ======================
+" Flake8
+" ======================
+autocmd FileType python map <buffer> ,f :call Flake8()<CR>
+let g:flake8_ignore="E501,W293"
