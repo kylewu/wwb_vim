@@ -37,10 +37,6 @@
 	path = .vim/bundle/pyflakes
 	url = https://github.com/kevinw/pyflakes-vim.git
 	ignore = dirty
-[submodule ".vim/bundle/vim-coffee-script"]
-	path = .vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-	ignore = dirty
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
@@ -48,9 +44,6 @@
 [submodule ".vim/bundle/zencoding-vim"]
 	path = .vim/bundle/zencoding-vim
 	url = https://github.com/mattn/zencoding-vim.git
-[submodule ".vim/bundle/vim-less"]
-	path = .vim/bundle/vim-less
-	url = https://github.com/groenewege/vim-less.git
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
