@@ -1,7 +1,8 @@
 filetype off
 " For pathogen.vim: auto load all plugins in .vim/bundle
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
+"call pathogen#helptags()
 
 set nocompatible
 set nomodeline
@@ -184,7 +185,7 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 " Python
 " =======================
 au BufEnter,BufNewFile *.py set expandtab
-autocmd FileType python setl et | setl sta | setl sw=4 | setl ts=4 | setl sts=4
+autocmd FileType python setl et | setl sta | setl sw=2 | setl ts=2 | setl sts=2
 
 " ======================
 " JS
@@ -220,8 +221,8 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 syn region javaScriptFunctionFold  start="{" end="}" transparent fold
 
-" ======================
-" Flake8
-" ======================
-autocmd FileType python map <buffer> ,f :call Flake8()<CR>
-let g:flake8_ignore="E501,W293"
+map ,sc :SyntasticCheck<cr>
+let g:syntastic_check_on_open=1
+let g:syntastic_mode_map = { 'mode': 'active',
+													 \ 'active_filetypes': ['python'],
+													 \ 'passive_filetypes': ['puppet'] }
