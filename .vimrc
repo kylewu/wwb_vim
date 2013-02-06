@@ -14,7 +14,7 @@ set go=aeg
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,prc,taiwan,latin-1
 set termencoding=utf-8
-set fileformats=dos,unix
+set fileformats=unix
 
 " 解决consle输出乱码
 "language messages zh_CN.utf-8
@@ -41,10 +41,17 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set noeb
 
 " 设置字体
-set gfn=Monaco\ 11
+if has("unix")
+	let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      "Mac options here
+			set gfn=Monaco:h14
+		else
+			set gfn=Monaco\ 11
+    endif
+endif
 "set gfn=Inconsolata:h16
 "set gfn=DroidSansMono\ 11 "Monaco\ 11
-"set gfn=Monaco:h14
 
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
@@ -184,7 +191,7 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 " =======================
 " Python
 " =======================
-au BufEnter,BufNewFile *.py set expandtab
+au BufEnter,BufNewFile *.py set expandtab | set list! | set listchars=tab:>-
 autocmd FileType python setl et | setl sta | setl sw=2 | setl ts=2 | setl sts=2
 
 " ======================
@@ -193,7 +200,9 @@ autocmd BufEnter,BufReadPre *.js setl ts=2 | setl sts=2 |setl sw=2 | setl expand
 
 " ======================
 " HTML
+au BufEnter,BufNewFile *.html set expandtab | set list! | set listchars=tab:>-
 autocmd BufEnter,BufReadPre *.html setl ts=2 | setl sts=2 |setl sw=2
+
 autocmd BufEnter,BufReadPre *.tex set tw=0
 
 " ======================
@@ -205,8 +214,15 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 " ======================
 " ACK
 " ======================
-" Ubuntu only
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+if has("unix")
+	let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      "Mac options here
+		else
+			" Ubuntu only
+			"let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+    endif
+endif
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
@@ -226,3 +242,5 @@ let g:syntastic_check_on_open=1
 let g:syntastic_mode_map = { 'mode': 'active',
 													 \ 'active_filetypes': ['python'],
 													 \ 'passive_filetypes': ['puppet'] }
+
+" display tab
