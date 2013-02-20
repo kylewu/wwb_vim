@@ -1,8 +1,5 @@
 filetype off
-" For pathogen.vim: auto load all plugins in .vim/bundle
-"call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
-"call pathogen#helptags()
 
 set nocompatible
 set nomodeline
@@ -28,7 +25,17 @@ filetype plugin on    " Enable filetype-specific plugins
 syntax on
 
 " Color Scheme
-colorscheme desert "wombat
+colorscheme solarized "desert 
+if !has('gui_running')
+	" Compatibility for Terminal
+	let g:solarized_termtrans=1
+	if $TERM == 'xterm-256color'
+		set t_Co=256
+	else
+		" Make Solarized use 16 colors for Terminal support
+		let g:solarized_termcolors=16
+	endif
+endif
 set background=dark
 
 " 在tab上只显示文件名
@@ -67,7 +74,7 @@ set laststatus=2
 
 " cool补全
 set wildmenu
-set wildignore+=*.o,*~
+set wildignore+=*.o,*~,*.pyc,*.so
 set suffixes+=.in,.a
 
 nnoremap j gj
@@ -201,6 +208,7 @@ autocmd BufEnter,BufReadPre *.js setl ts=2 | setl sts=2 |setl sw=2 | setl expand
 " ======================
 " HTML
 au BufEnter,BufNewFile *.html set expandtab | set list! | set listchars=tab:>-
+au Filetype html,xml,xsl source ~/.vim/closetag.vim 
 autocmd BufEnter,BufReadPre *.html setl ts=2 | setl sts=2 |setl sw=2
 
 autocmd BufEnter,BufReadPre *.tex set tw=0
@@ -243,4 +251,16 @@ let g:syntastic_mode_map = { 'mode': 'active',
 													 \ 'active_filetypes': ['python'],
 													 \ 'passive_filetypes': ['puppet'] }
 
-" display tab
+
+if has("unix")
+	let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      "Mac options here
+			set tags=/Users/wenbinwu/vm/fyndiq/tags
+		else
+			" Ubuntu only
+			set tags=/vagrant/tags
+    endif
+endif
+
+let g:indent_guides_guide_size = 1
