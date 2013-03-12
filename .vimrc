@@ -74,7 +74,7 @@ set laststatus=2
 
 " cool补全
 set wildmenu
-set wildignore+=*.o,*~,*.pyc,*.so
+set wildignore+=*.o,*~,*.pyc,*.so,*.png,*.jpg
 set suffixes+=.in,.a
 
 nnoremap j gj
@@ -85,7 +85,7 @@ vnoremap k gk
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
-set textwidth=80        " break lines when line length increases
+set textwidth=120        " break lines when line length increases
 set fo=cqt
 set wm=0
 
@@ -208,7 +208,6 @@ autocmd BufEnter,BufReadPre *.js setl ts=2 | setl sts=2 |setl sw=2 | setl expand
 " ======================
 " HTML
 au BufEnter,BufNewFile *.html set expandtab | set list! | set listchars=tab:>-
-au Filetype html,xml,xsl source ~/.vim/closetag.vim 
 autocmd BufEnter,BufReadPre *.html setl ts=2 | setl sts=2 |setl sw=2
 
 autocmd BufEnter,BufReadPre *.tex set tw=0
@@ -217,7 +216,8 @@ autocmd BufEnter,BufReadPre *.tex set tw=0
 " ctrlp
 " ======================
 let g:ctrlp_working_path_mode = 2
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/var/*   " for Linux/MacOSX
+let g:ctrlp_clear_cache_on_exit = 1
 
 " ======================
 " ACK
@@ -259,7 +259,7 @@ if has("unix")
 			set tags=/Users/wenbinwu/vm/fyndiq/tags
 		else
 			" Ubuntu only
-			set tags=/vagrant/tags
+			set tags=/home/vagrant/django.tags,/vagrant/tags
     endif
 endif
 
