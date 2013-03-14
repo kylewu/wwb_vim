@@ -199,7 +199,7 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 " Python
 " =======================
 au BufEnter,BufNewFile *.py set expandtab | set list! | set listchars=tab:>-
-autocmd FileType python setl et | setl sta | setl sw=2 | setl ts=2 | setl sts=2
+autocmd FileType python setl et | setl sta | setl sw=4 | setl ts=4 | setl sts=4
 
 " ======================
 " JS
