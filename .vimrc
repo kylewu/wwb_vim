@@ -82,6 +82,8 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+set spell spelllang=en_us  " spell check
+
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
 " --------------------------------------------------------------------------------
@@ -228,7 +230,7 @@ if has("unix")
       "Mac options here
 		else
 			" Ubuntu only
-			"let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+			let g:ackprg="ack-grep -H --nocolor --nogroup --column"
     endif
 endif
 
@@ -259,8 +261,11 @@ if has("unix")
 			set tags=/Users/wenbinwu/vm/fyndiq/tags
 		else
 			" Ubuntu only
-			set tags=/home/vagrant/django.tags,/vagrant/tags
+			set tags=/home/vagrant/django.tags,~/tags
     endif
 endif
 
 let g:indent_guides_guide_size = 1
+
+" compile less
+nnoremap ,m :w <BAR> !lessc % > %:p:r.css<CR><space>
