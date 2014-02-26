@@ -22,10 +22,9 @@ filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
 " 自动检测语法
-syntax on
+syntax enable
 
 " Color Scheme
-colorscheme solarized "desert 
 if !has('gui_running')
 	" Compatibility for Terminal
 	let g:solarized_termtrans=1
@@ -37,6 +36,7 @@ if !has('gui_running')
 	endif
 endif
 set background=dark
+colorscheme solarized "desert 
 
 " 在tab上只显示文件名
 set guitablabel=%t
