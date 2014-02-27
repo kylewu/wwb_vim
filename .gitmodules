@@ -37,18 +37,12 @@
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
 	ignore = dirty
-[submodule ".vim/bundle/zencoding-vim"]
-	path = .vim/bundle/zencoding-vim
-	url = https://github.com/mattn/zencoding-vim.git
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
-[submodule ".vim/bundle/vim-powerline"]
-	path = .vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -65,3 +59,6 @@
 [submodule ".vim/bundle/matchtag"]
 	path = .vim/bundle/matchtag
 	url = https://github.com/gregsexton/MatchTag.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
