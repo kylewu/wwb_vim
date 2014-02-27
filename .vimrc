@@ -82,7 +82,8 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-set spell spelllang=en_us  " spell check
+set spelllang=en_us  " spell check
+set spell
 
 " --------------------------------------------------------------------------------
 " configure editor with tabs and nice stuff...
@@ -96,11 +97,11 @@ set shiftwidth=2        " number of spaces to use for auto indent
 set softtabstop=2
 set autoindent          " copy indent from current line when starting a new line
 
-" make backspaces more powerfull
+" make backspaces more powerful
 set backspace=indent,eol,start
 
 " 整词换行
-set linebreak
+"set linebreak
 
 " save and restor fold
 au BufWinLeave *.* mkview
@@ -196,6 +197,7 @@ let g:snips_author = "Wenbin Wu  admin@wenbinwu.com"
 au BufRead,BufNewFile *.c set noexpandtab
 au BufRead,BufNewFile *.h set noexpandtab
 au BufRead,BufNewFile Makefile* set noexpandtab
+au BufRead,BufNewFile *.html set noexpandtab
 
 " =======================
 " Python
